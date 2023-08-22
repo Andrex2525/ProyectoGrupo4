@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Empathia.Vistas.diario.Registrodiario"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="60, *"
+          BackgroundColor="#B1CDE0">
+        <StackLayout Orientation="Horizontal"
+                     Margin="10">
+            <Image Source="flechaizq.png"                 
+                   Margin="10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VolverCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="Agregar nuevo"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Center"
+               FontSize="25"
+               FontAttributes="Bold"
+               Margin="0,0,30,0"
+               TextColor="#FCA1A5"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1"
+                     Margin="15">
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Foto: "
+                       TextColor="#4d4d4d"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Frame BorderColor="Gray" CornerRadius="10" Margin="0,0,0,0" HorizontalOptions="StartAndExpand">
+                    <Entry Placeholder="Url de la imagen" 
+                           HeightRequest="40" 
+                           Margin="0,-20,0,-20"
+                           WidthRequest="350"
+                           Text="{Binding Txtimagen}"/>
+                </Frame>
+
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nombre: "
+                       TextColor="#4D4D4D"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Frame BorderColor="Gray" CornerRadius="10" Margin="0,10,0,0">
+                    <Entry Placeholder="Titulo" HeightRequest="40" WidthRequest="312" Margin="0,-20,0,-20" Text="{Binding Txttitulo}"/>
+                </Frame>
+                
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Color: "
+                       TextColor="#4D4D4D"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Frame BorderColor="Gray" CornerRadius="10" Margin="0,10,0,0">
+                    <Entry Placeholder="Ingrese un color" HeightRequest="40" WidthRequest="340" Margin="0,-20,0,-20" Text="{Binding Txtcolorfondo}"/>
+                </Frame>
+            </StackLayout>
+                       
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Texto: "
+                       TextColor="#4D4D4D"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Frame BorderColor="Gray" CornerRadius="10" Margin="0,10,0,0">
+                    <Editor Placeholder="Descripcion" HeightRequest="100" WidthRequest="336" Margin="0,-20,0,-20" Text="{Binding Txtparrafo}"/>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Fecha: "
+                       TextColor="#4D4D4D"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Frame BorderColor="Gray" CornerRadius="10" Margin="0,10,0,0">
+                    <Entry Placeholder="Ingrese la fecha" HeightRequest="40" WidthRequest="336" Margin="0,-20,0,-20" Text="{Binding Txtfecha}"/>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Margin="0,10,0,0">
+                <Image Source="https://i.ibb.co/5M7Npn8/ojo-2.png"
+                       HeightRequest="20"/>
+                <Label TextColor="#4D4D4D"
+                       Text="Vista previa"
+                       FontAttributes="Italic"
+                       VerticalOptions="Center"
+                       FontSize="20"/>
+
+            </StackLayout>
+            
+            <Grid RowDefinitions="100, *"
+                  Margin="0,30,0,0">
+                <Frame Grid.Row="1"
+                       HorizontalOptions="Center"
+                       CornerRadius="15"
+                       BackgroundColor="{Binding Txtcolorfondo}"
+                       Margin="0,-40,0,0"
+                       BorderColor="#FFF5D8"                       
+                       WidthRequest="250">
+                    <StackLayout Margin="0,50,0,0">
+                        <Label Text="{Binding Txttitulo}"
+                               CharacterSpacing="1"
+                               FontAttributes="Bold"
+                               FontSize="20"/>
+
+                        <Label Text="{Binding Txtparrafo}"                          
+                               HeightRequest="50"/>
+
+                        <Label Text="{Binding Txtfecha}"
+                               HorizontalOptions="Center"/>
+
+                    </StackLayout>
+
+                </Frame>
+                
+                <Image Source="{Binding Txtimagen}"
+                       HeightRequest="130"
+                       VerticalOptions="StartAndExpand"
+                       Grid.RowSpan="2"/>
+            </Grid>
+            
+            <Frame HorizontalOptions="Center"
+                   Padding="6"
+                   Margin="0,10,0,0"
+                   CornerRadius="15"
+                   HasShadow="False"
+                   BackgroundColor="#FFE38B">
+                <Button Text="+"
+                        HorizontalOptions="Center"
+                        BackgroundColor="#FFE38B"
+                        BorderWidth="6"
+                        CornerRadius="15"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        BorderColor="#FFD552"
+                        Command="{Binding InsertarCommand}"/>
+            </Frame>
+            
+        </StackLayout>
+    </Grid>
+    
+    
+</ContentPage>

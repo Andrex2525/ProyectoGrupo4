@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Empathia.Vistas.Login"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="*,*">
+        <Image Source="flechavolver.png"
+                   VerticalOptions="Start"
+                   HeightRequest="50"
+                   HorizontalOptions="Start"
+                   Margin="10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding VolverCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <StackLayout HorizontalOptions="Center">
+
+            <Label Text="Iniciar sesión"
+                   FontSize="40"
+                   HorizontalTextAlignment="Center"
+                   FontFamily="Metropolis"
+                   TextColor="#4A4B4D"
+                   Margin="0,50,0,0"/>
+            <Label Text="Agrega tus datos para iniciar sesión"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,10,0,0"
+                   HorizontalOptions="Center"
+                   FontSize="15"
+                   FontFamily="Metropolis"
+                   TextColor="#7C7D7E"/>
+
+            <Frame CornerRadius="30" 
+                   BackgroundColor="#F2F2F2"
+                   HasShadow="False"
+                   WidthRequest="350"
+                   HeightRequest="20"
+                   Margin="0,40,0,0">
+                <Entry HorizontalOptions="Start"
+                       FontSize="14"
+                       PlaceholderColor="#B6B7B7"
+                       TextColor="Black"
+                       Placeholder="Correo Electrónico"
+                       Margin="15,-30,0,-30"/>
+            </Frame>
+
+            <Frame CornerRadius="30"
+                   BackgroundColor="#F2F2F2"
+                   HasShadow="False"
+                   WidthRequest="350"
+                   HeightRequest="20"
+                   Margin="0,20,0,0">
+                <Entry HorizontalOptions="Start"
+                       FontSize="14"
+                       PlaceholderColor="#B6B7B7"
+                       TextColor="Black"
+                       Placeholder="Contraseña"
+                       Margin="15,-30,0,-30" />
+            </Frame>
+        </StackLayout>
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" Margin="0,-55,0,0">
+            <Button Command="{Binding HomeCommand}"
+                    Text="Iniciar sesión"
+                    BackgroundColor="#FC6011"
+                    TextColor="White"
+                    WidthRequest="380"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,0"
+                    CornerRadius="30" />
+            <Label Text="¿Olvidaste tu contraseña?"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0"
+                   HorizontalOptions="Center"
+                   FontSize="15"
+                   FontFamily="Metropolis"
+                   TextColor="#7C7D7E" />
+            <Label Text="O inicia sesión con"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0"
+                   HorizontalOptions="Center"
+                   FontSize="15"
+                   FontFamily="Metropolis"
+                   TextColor="#7C7D7E" />
+            <StackLayout Orientation="Horizontal" Spacing="-280">
+                <Button Command="{Binding back}"
+                        Text="Iniciar con Google"
+                        FontSize="12"
+                        BackgroundColor="White"
+                        TextColor="#4A4B4D"
+                        BorderColor="#FC6011"
+                        BorderWidth="1"
+                        FontFamily="Metropolis"
+                        WidthRequest="380"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        Margin="0,20,0,0"
+                        CornerRadius="30" />
+                <Image Source="g00gle.png"
+                       WidthRequest="24"
+                       HeightRequest="20"
+                       Margin="0,20,0,0" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center"
+                         Grid.Column="1"
+                         Orientation="Horizontal"
+                         Spacing="10"
+                         Margin="0,160,0,0">
+                <Label Text="No tienes una cuenta?"
+                       FontSize="15"
+                       FontFamily="Cabin"
+                       TextColor="#4A4B4D" />
+                <Label Text="Registrate"    
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       FontFamily="Cabin"
+                       TextColor="#FC6011">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

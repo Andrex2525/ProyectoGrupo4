@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Empathia.Vistas.diario.Detallediario"
+             xmlns:sharpnado="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="1,0">
+                <GradientStop Color="#fdc" Offset="0.1"/>
+                <GradientStop Color="{Binding parametrosRecibe.Colorfondo}" Offset="0.8"/>
+
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackLayout>
+            <StackLayout>
+                
+            </StackLayout>
+            
+
+            
+                              
+            <ScrollView>
+                    <StackLayout Padding="20" Spacing="20">
+                        
+                    <Frame CornerRadius="20" BackgroundColor="#F5F5F5">
+                        <Grid>
+                            <StackLayout Spacing="0">
+                                <StackLayout Orientation="Horizontal">
+                                  <Image Source="flechavolver.png"                                                 
+                                   HeightRequest="30"
+                                   WidthRequest="30"
+                                   HorizontalOptions="Start">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding VolverCommand}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                
+                                <Label Text="{Binding parametrosRecibe.Fecha}"
+                               FontSize="14"
+                               TextColor="#999999"
+                                       HorizontalOptions="EndAndExpand"
+                               Margin="0,4,15,0"/> 
+                                </StackLayout>
+
+
+                                <Frame CornerRadius="10" HeightRequest="250"
+                                       Margin="5,20,5,20">
+                                    <Image Source="{Binding parametrosRecibe.Imagen}"                                      
+                                   Aspect="AspectFill"/>
+                                </Frame>
+
+
+                                <Label Text="{Binding parametrosRecibe.Titulo}"
+                                       FontSize="24"
+                                       TextColor="Black"
+                                       Margin="0,0,0,10"
+                                       HorizontalOptions="Start"/>
+
+                                <Label Text="{Binding parametrosRecibe.Parrafo}"
+                                       FontSize="16"
+                                       LineHeight="1.5"
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </Grid>    
+                    </Frame>
+                </StackLayout>
+                
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Empathia.Vistas.Home"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid BackgroundColor="#F5F5F5">
+        
+        
+        <StackLayout>
+            <Image Source="logoinicio.png"                                      
+             HeightRequest="50"
+             WidthRequest="100"
+                   Margin="0,20,0,-15"
+                   
+            HorizontalOptions="Center">
+            </Image>
+            <Label Text="Recomendaciones"
+               TextColor="Black"
+               FontSize="24"
+               FontAttributes="Bold"
+               Margin="15" />
+            <CarouselView ItemsSource="{Binding Places}"
+                      HeightRequest="300"
+                      x:Name="listalecturas"
+                      PeekAreaInsets="130">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HeightRequest="280"
+                               WidthRequest="180"
+                               BackgroundColor="White"
+                               Padding="0"
+                               HasShadow="True"
+                               Margin="10"
+                               CornerRadius="10"
+                               HorizontalOptions="CenterAndExpand">
+                                <Grid>
+                                    <StackLayout  BackgroundColor="#FFF8E5">
+                                        <Image Source="{Binding imgSource}"
+                                           HeightRequest="150"
+                                           Opacity="0.7"
+                                           Aspect="AspectFill">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout Margin="0,0,0,5">
+                                        <Image Source="https://images.vexels.com/media/users/3/147081/isolated/preview/8665e39f2880934120b3c37131210042-instagram-bookmark-icon-by-vexels.png"
+                                           HeightRequest="20"
+                                           Aspect="AspectFit"
+                                           HorizontalOptions="EndAndExpand"
+                                           Margin="10,0" />
+                                        <Label Text="{Binding title}"
+                                           TextColor="Black"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           Margin="20,6"
+                                           VerticalOptions="EndAndExpand">
+                                        </Label>
+                                        <StackLayout Orientation="Horizontal"
+                                                 Margin="20,5,0,8">
+                                            <Image Source="{Binding logo}"
+                                               HeightRequest="20"
+                                               Margin="-5,0"
+                                               Aspect="AspectFit" />
+                                            <Label Text="{Binding country}"
+                                               TextColor="Black"
+                                               FontSize="14"
+                                                   Margin="7,0,0,0"
+                                               FontAttributes="None"
+                                               VerticalOptions="EndAndExpand" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                    Command="{Binding Path=BindingContext.NavLecCommand,
+                                    Source={x:Reference listalecturas}}" CommandParameter="{Binding .}">
+
+                                    </TapGestureRecognizer>
+
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <StackLayout Orientation="Horizontal" Margin="15">
+                <Label Text="¿Cómo te sientes hoy?"
+                        TextColor="Black"
+                        FontSize="22"
+                        FontAttributes="Bold"
+                        Margin="0,0,10,0" />
+                <Label HorizontalOptions="EndAndExpand"
+                        Text="Mostrar más"
+                        TextColor="Black"
+                        FontSize="16"
+                        FontAttributes="None"
+                        VerticalTextAlignment="Center">
+
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RecomendacionesCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+                   
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="StartAndExpand">
+                <StackLayout Margin="5"
+                         WidthRequest="100">
+                    <ImageButton  HorizontalOptions="Center"
+                              Source="https://i.ibb.co/16bYj2K/cara-sonriente.png"
+                              HeightRequest="50" />
+                    <Label HorizontalOptions="Center"
+                       Text="Contento"
+                       TextColor="Black"
+                       FontSize="17"
+                       FontAttributes="None"
+                       VerticalTextAlignment="Center"
+                       Margin="10" />
+                </StackLayout>
+                <StackLayout  Margin="5"
+                          WidthRequest="100">
+                    <ImageButton  HorizontalOptions="Center"
+                              Source="https://i.ibb.co/4tNYWTV/linda.png"
+                              HeightRequest="50" />
+                    <Label HorizontalOptions="Center"
+                       Text="Triste"
+                       TextColor="Black"
+                       FontSize="17"
+                       FontAttributes="None"
+                       VerticalTextAlignment="Center"
+                       Margin="10" />
+                </StackLayout>
+                <StackLayout  Margin="5"
+                          WidthRequest="100">
+                    <ImageButton  HorizontalOptions="Center"
+                              Source="https://i.ibb.co/MnrBrMG/cara-enojada.png"
+                              HeightRequest="50" />
+                    <Label HorizontalOptions="Center"
+                       Text="Enojado"
+                       TextColor="Black"
+                       FontSize="17"
+                       FontAttributes="None"
+                       VerticalTextAlignment="Center"
+                       Margin="10" />
+                </StackLayout>
+                <StackLayout  Margin="5"
+                          WidthRequest="100">
+                    <ImageButton  HorizontalOptions="Center"
+                              Source="https://i.ibb.co/r7hDHMc/meh.png"
+                              HeightRequest="50" />
+                    <Label HorizontalOptions="Center"
+                       Text="Desanimado"
+                       TextColor="Black"
+                       FontSize="12"
+                       FontAttributes="None"
+                       VerticalTextAlignment="Center"
+                       Margin="10" />
+                </StackLayout>
+            </StackLayout>
+            <Grid BackgroundColor="#F5F5F5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Contenido principal de la página -->
+                <ScrollView Grid.Row="0">
+                    <!-- ... otro contenido aquí ... -->
+                </ScrollView>
+
+                <!-- Sección en la parte inferior -->
+                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="10" Padding="20">
+                    <!-- Cuadro "Diario de gratitud" -->
+                    <Frame CornerRadius="10" BackgroundColor="#CBDDEA" HorizontalOptions="FillAndExpand">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavegardiarioCommand}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="20" HorizontalOptions="CenterAndExpand">
+                            <Image Source="diario.png" HeightRequest="40" WidthRequest="40" />
+                            <Label Text="Diario de gratitud" TextColor="Black" FontSize="16" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Cuadro "Solicitar ayuda" -->
+                    <Frame CornerRadius="10" BackgroundColor="#CBDDEA" HorizontalOptions="FillAndExpand">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavegarayudaCommand}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout Padding="20" HorizontalOptions="CenterAndExpand">
+                            <Image Source="ayuda.png" HeightRequest="40" WidthRequest="40" />
+                            <Label Text="Solicitar ayuda" TextColor="Black" FontSize="16" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+
+        </StackLayout> 
+    </Grid>
+    
+
+</ContentPage>

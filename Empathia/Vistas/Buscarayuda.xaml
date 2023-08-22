@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
+             x:Class="Empathia.Vistas.Buscarayuda">
+
+        <StackLayout Spacing="20" Padding="20">
+            <!-- Título de la página -->
+            <Label Text="Solicitar ayuda profesional" FontSize="24" FontAttributes="Bold" TextColor="#333" HorizontalOptions="Center"/>
+
+            <!-- Descripción -->
+            <Label Text="¿Buscas apoyo profesional para tu bienestar mental? Considera los centros dedicados a la psicología y salud mental. Te damos algunas opciones en la zona."
+                   FontSize="16" TextColor="#777" HorizontalTextAlignment="Center"/>
+
+            <!-- Cuadros de contacto -->
+            <StackLayout Spacing="10">
+                <Frame CornerRadius="10" BackgroundColor="#F5F5F5">
+                    <StackLayout Orientation="Horizontal" Padding="15">
+                        <Image Source="telefono.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="+593 7 765 4321" FontSize="16" TextColor="#444" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="PSIA Psicología Integral" FontSize="14" TextColor="#666" HorizontalOptions="End"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Spacing="10">
+            <Frame CornerRadius="10" BackgroundColor="#F5F5F5">
+                    <StackLayout Orientation="Horizontal" Padding="15">
+                        <Image Source="telefono.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="+593 4 876 5432" FontSize="16" TextColor="#444" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Upgrade S.A." FontSize="14" TextColor="#666" HorizontalOptions="End"/>
+                       
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Spacing="10">
+                <Frame CornerRadius="10" BackgroundColor="#F5F5F5">
+                    <StackLayout Orientation="Horizontal" Padding="15">
+                    <Image Source="telefono.png" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"/>
+                    <Label Text="+593 2 987 6543" FontSize="16" TextColor="#444" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="Especialidades Psicológicas" FontSize="14" TextColor="#666" HorizontalOptions="End"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Mapa -->
+        <Frame CornerRadius="10" BackgroundColor="#F5F5F5" HeightRequest="300">
+            <maps:Map x:Name="map"/>
+        </Frame>
+        </StackLayout>
+
+</ContentPage>
